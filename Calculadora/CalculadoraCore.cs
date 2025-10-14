@@ -4,7 +4,6 @@ using System.Globalization;
 
 namespace Calculadora
 {
-    // Núcleo minimalista: guarda tokens (números e + - * /) e calcula com precedência
     public class CalculadoraCore
     {
         private readonly List<string> _tokens = new();
@@ -46,12 +45,12 @@ namespace Calculadora
 
             if (_tokens.Count == 0)
             {
-                if (op == '-') _tokens.Add("-"); // permite começar negativo
+                if (op == '-') _tokens.Add("-"); 
                 return;
             }
 
             if (EhOperador(_tokens[^1]))
-                _tokens[^1] = op.ToString(); // troca operador
+                _tokens[^1] = op.ToString(); 
             else
                 _tokens.Add(op.ToString());
         }
@@ -82,7 +81,6 @@ namespace Calculadora
             }
         }
 
-        // ------ internos ------
 
         private static bool EhOperador(string t) => t is "+" or "-" or "*" or "/";
 
